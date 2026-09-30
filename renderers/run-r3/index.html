@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="en">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Kiwi WebGL native running trot proof</title>
+<style>
+  html,body { margin:0; background:#555; color:white; font:14px system-ui; }
+  #controls { padding:8px; display:flex; gap:10px; align-items:center; }
+  canvas { display:block; width:810px; height:590px; }
+</style>
+<div id="controls"><label>Side <select id="side"><option>left</option><option>right</option></select></label><label>Frame <select id="frame"></select></label><span id="status">Loading</span></div>
+<div id="stage"></div>
+<script type="module" src="/proof/proof.js"></script>
+</html>

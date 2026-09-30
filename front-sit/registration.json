@@ -1,0 +1,140 @@
+{
+  "stage": [
+    520,
+    590
+  ],
+  "body": {
+    "nativeAlphaBounds": [
+      87,
+      98,
+      1091,
+      1230
+    ],
+    "scale": 0.4416961130742049,
+    "offset": [
+      -0.15901060070672202,
+      2.7137809187279345
+    ],
+    "targetAlphaTop": 46.0,
+    "targetAlphaFloor": 546.0,
+    "nativeSha256": "6c38c417f90edafc56835520d9ff47a45198867124abb190c8ab0a1e8218ada6",
+    "registeredSha256": "482a27d879ff456559a71a2e5362a5ba2e892e9425603b3f7cfd17afa4e8fd82"
+  },
+  "tail": {
+    "nativeAlphaBounds": [
+      249,
+      194,
+      776,
+      1300
+    ],
+    "scale": 0.20795660036166366,
+    "nativeRoot": [
+      512.0,
+      1298.0
+    ],
+    "stageRoot": [
+      260.0,
+      480.0
+    ],
+    "registeredRoot": [
+      106.5,
+      269.5716145833333
+    ],
+    "registeredSize": [
+      213,
+      319
+    ],
+    "nativeSha256": "5c68f5274e84d515b4ff3e462d40ccd00462cddb130c1cd23369d708595aafe1",
+    "registeredSha256": "b06115bdb00b71c5f4b5c19bdca3932fe7f5c3e66907bf5bc48eb45a9384cb66"
+  },
+  "tailAngles": {
+    "nativeSha256": "5379a3e6fed3440992f5198915355b158ca07fb5f5452d3114ca31b9bd201712",
+    "profilesSha256": "87ffa7e8abdefaf025e1b16d04d4e926329a7a6bc8ee5017805df6312af70415",
+    "views": {
+      "left": {
+        "panel": [
+          0,
+          0,
+          591,
+          887
+        ],
+        "nativeRoot": [
+          338.51269035532994,
+          806
+        ],
+        "nativeTip": [
+          319.5,
+          108
+        ],
+        "scale": 0.32951289398280803,
+        "offset": [
+          -1.5442962488909586,
+          14.41260744985675
+        ],
+        "registeredSha256": "9b4ceaa223c35d2f0461c012a1dce8e6241e86cfda2035358d6a5ed3b25fdd2e",
+        "registeredAlphaBounds": [
+          42,
+          50,
+          159,
+          280
+        ]
+      },
+      "center": {
+        "panel": [
+          591,
+          0,
+          1183,
+          887
+        ],
+        "nativeRoot": [
+          887.1554404145078,
+          812
+        ],
+        "nativeTip": [
+          887.0,
+          100
+        ],
+        "scale": 0.32303370786516855,
+        "offset": [
+          14.33180997845956,
+          17.696629213483163
+        ],
+        "registeredSha256": "e74badd90e44edb1e2cfd7348bb5b7a6a343fc81e5583ac9694c15fab9ecc625",
+        "registeredAlphaBounds": [
+          47,
+          50,
+          173,
+          280
+        ]
+      },
+      "right": {
+        "panel": [
+          1183,
+          0,
+          1774,
+          887
+        ],
+        "nativeRoot": [
+          1436.367441860465,
+          806
+        ],
+        "nativeTip": [
+          1451.717741935484,
+          108
+        ],
+        "scale": 0.32951289398280803,
+        "offset": [
+          26.5121609915373,
+          14.41260744985675
+        ],
+        "registeredSha256": "759e48c0676f9a7e246e2f7f844e47cc1fcb5ba0a86111631dbdcc1dac3da6b5",
+        "registeredAlphaBounds": [
+          63,
+          50,
+          178,
+          281
+        ]
+      }
+    }
+  }
+}

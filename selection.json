@@ -1,0 +1,216 @@
+{
+  "schema": "kiwi-native-selection/v1",
+  "states": {
+    "idle": {
+      "frames": [
+        "inputs/idle/000.png",
+        "inputs/idle/001.png",
+        "inputs/idle/002.png",
+        "inputs/idle/003.png",
+        "inputs/idle/004.png",
+        "inputs/idle/005.png"
+      ],
+      "transform": {
+        "scale": 0.235,
+        "sourceAnchor": [
+          260,
+          550
+        ],
+        "cellAnchor": [
+          96,
+          190
+        ]
+      }
+    },
+    "running-right": {
+      "frames": [
+        "inputs/running-right/000.png",
+        "inputs/running-right/001.png",
+        "inputs/running-right/002.png",
+        "inputs/running-right/003.png",
+        "inputs/running-right/004.png",
+        "inputs/running-right/005.png",
+        "inputs/running-right/006.png",
+        "inputs/running-right/007.png"
+      ],
+      "transform": {
+        "scale": 0.235,
+        "sourceAnchor": [
+          405,
+          550
+        ],
+        "cellAnchor": [
+          96,
+          190
+        ]
+      }
+    },
+    "running-left": {
+      "frames": [
+        "inputs/running-left/000.png",
+        "inputs/running-left/001.png",
+        "inputs/running-left/002.png",
+        "inputs/running-left/003.png",
+        "inputs/running-left/004.png",
+        "inputs/running-left/005.png",
+        "inputs/running-left/006.png",
+        "inputs/running-left/007.png"
+      ],
+      "transform": {
+        "scale": 0.235,
+        "sourceAnchor": [
+          405,
+          550
+        ],
+        "cellAnchor": [
+          96,
+          190
+        ]
+      }
+    },
+    "waving": {
+      "frames": [
+        "inputs/waving/000.png",
+        "inputs/waving/001.png",
+        "inputs/waving/002.png",
+        "inputs/waving/003.png"
+      ],
+      "transform": {
+        "scale": 0.235,
+        "sourceAnchor": [
+          260,
+          550
+        ],
+        "cellAnchor": [
+          96,
+          190
+        ]
+      }
+    },
+    "jumping": {
+      "frames": [
+        "inputs/jumping/000.png",
+        "inputs/jumping/001.png",
+        "inputs/jumping/002.png",
+        "inputs/jumping/003.png",
+        "inputs/jumping/004.png"
+      ],
+      "transform": {
+        "scale": 0.235,
+        "sourceAnchor": [
+          320,
+          610
+        ],
+        "cellAnchor": [
+          96,
+          190
+        ]
+      }
+    },
+    "failed": {
+      "frames": [
+        "inputs/failed/000.png",
+        "inputs/failed/001.png",
+        "inputs/failed/002.png",
+        "inputs/failed/003.png",
+        "inputs/failed/004.png",
+        "inputs/failed/005.png",
+        "inputs/failed/006.png",
+        "inputs/failed/007.png"
+      ],
+      "transform": {
+        "scale": 0.235,
+        "sourceAnchor": [
+          320,
+          610
+        ],
+        "cellAnchor": [
+          96,
+          190
+        ]
+      }
+    },
+    "running": {
+      "frames": [
+        "inputs/running/000.png",
+        "inputs/running/001.png",
+        "inputs/running/002.png",
+        "inputs/running/003.png",
+        "inputs/running/004.png",
+        "inputs/running/005.png"
+      ],
+      "transform": {
+        "scale": 0.235,
+        "sourceAnchor": [
+          320,
+          610
+        ],
+        "cellAnchor": [
+          96,
+          190
+        ]
+      }
+    },
+    "review": {
+      "frames": [
+        "inputs/review/000.png",
+        "inputs/review/001.png",
+        "inputs/review/002.png",
+        "inputs/review/003.png",
+        "inputs/review/004.png",
+        "inputs/review/005.png"
+      ],
+      "transform": {
+        "scale": 0.235,
+        "sourceAnchor": [
+          320,
+          610
+        ],
+        "cellAnchor": [
+          96,
+          190
+        ]
+      }
+    },
+    "waiting": {
+      "frames": [
+        "inputs/waiting/000.png",
+        "inputs/waiting/001.png",
+        "inputs/waiting/002.png",
+        "inputs/waiting/003.png",
+        "inputs/waiting/004.png",
+        "inputs/waiting/005.png"
+      ],
+      "transform": {
+        "scale": 0.235,
+        "sourceAnchor": [
+          320,
+          610
+        ],
+        "cellAnchor": [
+          96,
+          190
+        ]
+      }
+    }
+  },
+  "look": [
+    "inputs/look/000.png",
+    "inputs/look/001.png",
+    "inputs/look/002.png",
+    "inputs/look/003.png",
+    "inputs/look/004.png",
+    "inputs/look/005.png",
+    "inputs/look/006.png",
+    "inputs/look/007.png",
+    "inputs/look/008.png",
+    "inputs/look/009.png",
+    "inputs/look/010.png",
+    "inputs/look/011.png",
+    "inputs/look/012.png",
+    "inputs/look/013.png",
+    "inputs/look/014.png",
+    "inputs/look/015.png"
+  ],
+  "neutral": "inputs/neutral/000.png"
+}

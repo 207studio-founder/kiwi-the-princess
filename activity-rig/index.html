@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Kiwi Activity Renderer</title>
+  <style>
+    :root{color-scheme:dark;font-family:system-ui,sans-serif;background:#101d2b;color:#edf5ff}
+    *{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(ellipse at 50% 20%,#203c55 0,#14283b 48%,#0d1724 100%);text-align:center}
+    main{width:min(100% - 32px,700px);margin:22px auto;padding:20px 18px 24px;border:1px solid #35516a;border-radius:22px;background:#162b3fee}
+    h1{margin:0 0 8px;font-size:21px}p{margin:0 0 14px;color:#a9c0d3;font-size:13px}
+    canvas{display:block;width:min(430px,90vw);height:auto;margin:0 auto;border:1px solid #45627a;border-radius:18px;background:#20374b}
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Kiwi activities</h1>
+    <p>원화를 기준으로 제작</p>
+    <canvas aria-label="Kiwi activity poses" width="640" height="680"></canvas>
+  </main>
+  <script type="module">
+    import {createActivity} from './activity.js';
+    const canvas=document.querySelector('canvas');
+    let renderer=null;
+    const api={
+      ready:createActivity(canvas).then(value=>{renderer=value;return undefined;}),
+      sample(state,index){if(!renderer)throw new Error('Wait for kiwiActivities.ready');return renderer.sample(state,index);},
+      capturePNG(){if(!renderer)throw new Error('Wait for kiwiActivities.ready');return renderer.capturePNG();},
+      diagnostics(){if(!renderer)throw new Error('Wait for kiwiActivities.ready');return renderer.diagnostics();}
+    };
+    window.kiwiActivities=api;
+    await api.ready;
+    api.sample('jump',0);
+  </script>
+</body>
+</html>

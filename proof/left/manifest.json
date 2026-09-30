@@ -1,0 +1,86 @@
+{
+  "view": "left",
+  "width": 810,
+  "height": 590,
+  "vertexCount": 30396,
+  "indexCount": 180264,
+  "order": [
+    "far-front",
+    "far-hind",
+    "near"
+  ],
+  "frames": [
+    "neutral",
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
+  ],
+  "positions": {
+    "neutral": "positions-neutral.f32",
+    "0": "positions-0.f32",
+    "1": "positions-1.f32",
+    "2": "positions-2.f32",
+    "3": "positions-3.f32",
+    "4": "positions-4.f32",
+    "5": "positions-5.f32",
+    "6": "positions-6.f32",
+    "7": "positions-7.f32",
+    "8": "positions-8.f32"
+  },
+  "textures": {
+    "far-front": {
+      "url": "/continuous-surface/far-front.png",
+      "sha256": "988c0392ac362abac2d12c3a86d6aa54a29c075f059aae8e60a59b99cdfae0e3"
+    },
+    "far-hind": {
+      "url": "/continuous-surface/far-hind.png",
+      "sha256": "fe7182b291df71bbf06eb0e1c4252f0ca50178637452f24f17199e8973628fcd"
+    },
+    "near": {
+      "url": "/continuous-surface/near-surface.png",
+      "sha256": "bb05a759124c7eb299b051f0d43ddd19f154bbad1bdecf95f6310668f887c8d1"
+    }
+  },
+  "sources": {
+    "outputs/kiwi-clay-r4/source/continuous_mls.py": "a92dd7adda6d6023039bd0c856c6a048575aa6cf71b6f738481c8190dec0ccad",
+    "outputs/kiwi-clay-r4/source/continuous_side.py": "3c7b6eb399414383e7aa9548128c9c0cb99d386cca91dffbc95bd930246ca562",
+    "outputs/kiwi-clay-r4/source/protect_mls_head.py": "ae583a3d55da93efd617e66c71c6d921db45730fe447abead272896de829c762",
+    "outputs/kiwi-clay-r4/source/protect_mls_paws.py": "7598baf93a27e1fc7b8eab0a4c37a02bf87ea473065f0b3bb6ce6b078b57e53c",
+    "outputs/kiwi-clay-r4/source/rig_controls_walk_v2.py": "f43d5fdc6e474f8df35d89709792bb8043816ce66fe389e69edc2763cadd6db1",
+    "outputs/kiwi-clay-r4/source/render_walk_face_r3.py": "ea4df921c8611e8daa3e21e910ad8091b99ff37eaf851bb5d951cd049f4cc5b3",
+    "outputs/kiwi-clay-r4/source/render_right_r2.py": "8a032311b0831d0ca9d6fa206a780fa1c0b7a121fa33c5feea40f60cc23ac28b",
+    "outputs/kiwi-clay-r4/source/render_right_proof.py": "c82295a5e3b697bf15af6ffe3c1ee28717287ec82a17a90a99b856cd0f8d525b",
+    "outputs/kiwi-clay-r4/source/right_view_contract.py": "d35fb8da31296b9f7eca7635388635b828e10cc79bfca95797f239d36a3b530d",
+    "outputs/kiwi-clay-r4/run-r3/generate.py": "0948400abe43a95007fcf9ab7f39877ad3e84d4759a0e66724a9f5f5baa2bb1f",
+    "outputs/kiwi-clay-r4/source/export_walk_meshes.py": "fa252c2174ec4b5c312dbf3901d764f6834523f6e9e305acecd4e53e7e51c88e"
+  },
+  "durationsMs": [
+    120,
+    120,
+    120,
+    120,
+    120,
+    120,
+    120,
+    220
+  ],
+  "nativeFrames": [
+    "0",
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7"
+  ],
+  "endpoint": "8",
+  "gait": "fore-hind bound with paired contacts",
+  "exportReady": false
+}

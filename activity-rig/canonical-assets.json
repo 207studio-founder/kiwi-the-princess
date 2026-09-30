@@ -1,0 +1,29 @@
+{
+  "canonical": "canonical-body.png",
+  "nativeSize": [
+    520,
+    590
+  ],
+  "headCopiedFromCanonical": true,
+  "generatedUse": "hidden torso, compact prone and four-paw hind-standing anatomical underplates, eye inserts; canonical rigid face retained",
+  "hashes": {
+    "foot-right.png": "fbcada9cee2226c008e1e3813fc2fa748d96e8d328d3046c1c2f4c23d2b842c1",
+    "prone-body.png": "64510eb1cf3c13bf878e667e4b3465d965fb269adb1dd1727dc5c4dfea4a2718",
+    "foreleg-right.png": "98730da6ddc04064a6197bef97d73ad244f287147e2b2873251259d0c6bcb6b2",
+    "eye-left-open.png": "5e0d10ad243d0412afb763d0885fe034253c15061dd00f06eeee99b2f58ab64f",
+    "stand-body.png": "0d82b19f90706fc20e5dbe9c5c73b260648f14d637625d1301c4b6927e589b50",
+    "nose.png": "43d437709e511297794e071f755154c2df4298b57b2b04e618c23cba79d3cc83",
+    "canonical-body.png": "482a27d879ff456559a71a2e5362a5ba2e892e9425603b3f7cfd17afa4e8fd82",
+    "ear-right.png": "9ebbb9941d0f95798d785f6d3ebcc2092058e15dcb2374097e36951716debc05",
+    "eye-right-closed.png": "8ca7bfc9819b2a9a2a17a9140504564fe99d67e4ec199c4b680b6a3427d388f7",
+    "eye-left-closed.png": "02bbb254d2b38a43f1b27784cc2f6aa023ce651c753791763b0aa1f157bd7df2",
+    "eye-right-empty.png": "dfd0946ce201706d0998125ddbdb81d77b5e3bec2acfd293840444114a8e5905",
+    "head.png": "17896ec95221faefa72a965f76043bc74f48ddf7685ce4341c80249b0530551c",
+    "foreleg-left.png": "525754b791da9f0aa5b5b3a0e61646b2c8a8fc63469df3648e0677f5bafe15e2",
+    "ear-left.png": "9903b206a0e2a98fcebe226e0ab0c02353e95af7a2a40559e79084e566efbbf3",
+    "torso.png": "d3bd3458cedc635682ce4cc04a547901948f12f9549ddf889a26afbe79d8b199",
+    "eye-left-empty.png": "85625d8d080876d50b76e35be6e8f73ed197dfb569d3e1e89e9794dcb3fe947d",
+    "eye-right-open.png": "32ee28b246453915f9ebbe21d952083abdc6b8448036c0adf264de1494889d02",
+    "foot-left.png": "fcffb0f8fbb319dbcaf018e0e469273c813da0ab80afc5e953c818d97c9cf900"
+  }
+}

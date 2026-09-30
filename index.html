@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>키위의 하루</title>
+  <style>
+    :root { color-scheme: dark; font: 15px system-ui, sans-serif; background: #121b29; color: #edf3ff; }
+    body { margin: 0; padding: 24px; display: grid; gap: 18px; justify-items: start; }
+    main { display: grid; grid-template-columns: 192px minmax(240px, 480px); gap: 24px; align-items: start; }
+    canvas { width: 192px; height: 208px; border: 1px solid #44516b; border-radius: 12px; }
+    #gallery { display: flex; gap: 16px; flex-wrap: wrap; max-width: 1120px; }
+    #gallery figure { margin: 0; display: grid; gap: 8px; }
+    #gallery figcaption { color: #b7c7e1; }
+    .controls { display: grid; gap: 12px; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 8px; }
+    button, select { font: inherit; padding: 7px 10px; }
+    #status { opacity: .75; }
+    body[data-bg="white"] canvas { background: white; }
+    body[data-bg="black"] canvas { background: #111; }
+    body[data-bg="checker"] canvas {
+      background-color: #ddd;
+      background-image: linear-gradient(45deg,#aaa 25%,transparent 25%),linear-gradient(-45deg,#aaa 25%,transparent 25%),linear-gradient(45deg,transparent 75%,#aaa 75%),linear-gradient(-45deg,transparent 75%,#aaa 75%);
+      background-size: 16px 16px;
+      background-position: 0 0,0 8px,8px -8px,-8px 0;
+    }
+    @media (max-width: 620px) { main { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body data-bg="checker">
+  <h1>키위의 하루</h1>
+  <main>
+    <canvas id="view" width="192" height="208" aria-label="Kiwi animation frame"></canvas>
+    <section class="controls">
+      <label>동작 <select id="state"></select></label>
+      <div class="buttons">
+        <button id="play">멈추기</button>
+        <button id="neutral">정면 보기</button>
+      </div>
+      <label>시선 <input id="gaze" type="range" min="0" max="15" value="0"> <output id="angle">0°</output></label>
+      <label>배경
+        <select id="background">
+          <option value="checker">투명 격자</option>
+          <option value="white">흰색</option>
+          <option value="black">검정</option>
+        </select>
+      </label>
+      <div id="status" role="status">키위를 불러오는 중…</div>
+    </section>
+  </main>
+  <section id="gallery" aria-label="키위의 모든 동작"></section>
+  <script>
+    const atlasUrl = new URL(new URLSearchParams(location.search).get('atlas') || 'build/spritesheet.png', location.href);
+    const image = new Image();
+    image.src = atlasUrl.href;
+    const canvas = document.querySelector('#view');
+    const ctx = canvas.getContext('2d');
+    const stateSelect = document.querySelector('#state');
+    const gaze = document.querySelector('#gaze');
+    const angle = document.querySelector('#angle');
+    const status = document.querySelector('#status');
+    const rows = [
+      ['idle', 0, [280,110,110,140,140,320]],
+      ['running-right', 1, [120,120,120,120,120,120,120,220]],
+      ['running-left', 2, [120,120,120,120,120,120,120,220]],
+      ['waving', 3, [140,140,140,280]],
+      ['jumping', 4, [140,140,140,140,280]],
+      ['failed', 5, [140,140,140,140,140,140,140,240]],
+      ['waiting', 6, [150,150,150,150,150,260]],
+      ['running', 7, [120,120,120,120,120,220]],
+      ['review', 8, [150,150,150,150,150,280]],
+    ];
+    let playing = true;
+    let start = performance.now();
+    let fixed = null;
+    let heldColumn = 0;
+    let selected = rows[0];
+    let galleryElapsed = 0;
+    const labels = ['앉아서 꼬리 흔들기','오른쪽 달리기','왼쪽 달리기','혀를 내밀고 인사','뒷발로 서기','시무룩','콧방울 불며 잠들기','키보드 두드리기','킁킁 냄새 맡고 갸웃'];
+    rows.forEach((row,i) => stateSelect.add(new Option(labels[i], row[0])));
+    const gallery = rows.map((row,i) => {
+      const figure=document.createElement('figure'),c=document.createElement('canvas'),label=document.createElement('figcaption');
+      c.width=192;c.height=208;c.setAttribute('aria-label',labels[i]);label.textContent=labels[i];
+      figure.append(c,label);document.querySelector('#gallery').append(figure);
+      return {row,canvas:c,ctx:c.getContext('2d')};
+    });
+    let resolveReady;
+    const ready=new Promise(resolve=>{resolveReady=resolve;});
+
+    function draw(row, column) {
+      ctx.clearRect(0, 0, 192, 208);
+      ctx.drawImage(image, column * 192, row * 208, 192, 208, 0, 0, 192, 208);
+      status.textContent = row < 9 ? labels[row] : '시선 ' + ((row-9)*8+column)*22.5 + '°';
+    }
+    function frameAt(durations, elapsed) {
+      const total = durations.reduce((sum, value) => sum + value, 0);
+      let time = elapsed % total;
+      for (let i = 0; i < durations.length; i++) {
+        if (time < durations[i]) return i;
+        time -= durations[i];
+      }
+      return durations.length - 1;
+    }
+    function tick(now) {
+      if (image.complete && image.naturalWidth) {
+        if(playing) galleryElapsed=now-start;
+        for(const item of gallery){
+          const column=frameAt(item.row[2],galleryElapsed);
+          item.ctx.clearRect(0,0,192,208);item.ctx.drawImage(image,column*192,item.row[1]*208,192,208,0,0,192,208);
+        }
+        if (fixed === -1) draw(0, 6);
+        else if (fixed !== null) draw(9 + Math.floor(fixed / 8), fixed % 8);
+        else if (playing) {
+          heldColumn = frameAt(selected[2], now - start);
+          draw(selected[1], heldColumn);
+        } else draw(selected[1], heldColumn);
+      }
+      requestAnimationFrame(tick);
+    }
+    stateSelect.addEventListener('change', () => {
+      selected = rows.find((row) => row[0] === stateSelect.value);
+      fixed = null;
+      start = performance.now();
+    });
+    document.querySelector('#play').addEventListener('click', (event) => {
+      if (playing) heldColumn = frameAt(selected[2], performance.now() - start);
+      playing = !playing;
+      event.currentTarget.textContent = playing ? '멈추기' : '재생';
+      start = performance.now();
+    });
+    gaze.addEventListener('input', () => {
+      fixed = Number(gaze.value);
+      angle.value = (fixed * 22.5) + '°';
+    });
+    document.querySelector('#neutral').addEventListener('click', () => {
+      fixed = -1;
+      draw(0, 6);
+      status.textContent = 'neutral gaze';
+    });
+    document.querySelector('#background').addEventListener('change', (event) => {
+      document.body.dataset.bg = event.target.value;
+    });
+    image.addEventListener('load', () => {
+      status.textContent = '키위 준비 완료';
+      resolveReady();
+      requestAnimationFrame(tick);
+    });
+    image.addEventListener('error', () => { status.textContent = 'Could not load ' + atlasUrl; });
+    window.kiwiAtlas={ready,
+      play(){playing=true;fixed=null;start=performance.now();},
+      sample(state,index){
+        const row=rows.find(item=>item[0]===state);
+        if(!row||!Number.isInteger(index)||index<0||index>=row[2].length)throw new RangeError('Invalid state sample');
+        playing=false;fixed=null;selected=row;stateSelect.value=state;heldColumn=index;draw(row[1],index);
+      },
+      look(index){if(!Number.isInteger(index)||index<0||index>15)throw new RangeError('Invalid gaze');playing=false;fixed=index;gaze.value=index;angle.value=(index*22.5)+'°';draw(9+Math.floor(index/8),index%8);},
+      neutral(){playing=false;fixed=-1;angle.value='정면';draw(0,6);},
+      capturePNG(){return canvas.toDataURL('image/png');},
+      getState(){return {playing,state:selected[0],column:heldColumn,gaze:fixed,loaded:image.naturalWidth===1536};}
+    };
+  </script>
+</body>
+</html>
